@@ -28,4 +28,20 @@ describe("WHEN loadConfig is called", () => {
       });
     });
   });
+
+  it("AND config file partially exists MUST merge with defaults", async () => {
+    await runInTempDir((cwd) => {
+      const customConfigFile = { root: "testFolder" };
+      fs.writeJsonSync(path.join(cwd, ".fsdslicerrc"), customConfigFile);
+
+      const cfg = loadConfig();
+      expect(cfg).toEqual({
+        ...DEFAULT_CONFIG,
+        ...customConfigFile,
+        layers: {
+          ...DEFAULT_CONFIG.layers,
+        },
+      });
+    });
+  });
 });
