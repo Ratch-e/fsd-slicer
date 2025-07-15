@@ -2,21 +2,26 @@ import fs from "fs-extra";
 import path from "path";
 import chalk from "chalk";
 import { loadConfig } from "../lib/loadConfig";
+import { runCustomConfigPrompt, runInitPrompt } from "../core/promps/init";
+import { createConfigFile } from "../core/generators/createConfigFile";
+import { createFolders } from "../core/generators/createFolders";
+import { FSDConfig } from "../types/common";
 
-export function runInit(rootOverride: string) {
-  const config = loadConfig();
-  const root = path.resolve(process.cwd(), rootOverride || config.root);
+export const runInit = async (targetDir?: string) => {
+  const mode = await runInitPrompt();
 
-  console.log(
-    chalk.bold.cyan(`⚙️⚙️ Инициализация структуры FSD в папке ${chalk.yellow(root)}...\n`),
-  );
+  let config: FSDConfig;
 
-  for (const layerKey of Object.keys(config.layers)) {
-    const folderName = config.layers[layerKey];
-    const fullPath = path.join(root, folderName);
-    fs.ensureDirSync(fullPath);
-    console.log(chalk.green(`📁 Создано: ${folderName}`));
+  if (mode === "custom") {
+    config = await runCustomConfigPrompt();
+    createConfigFile(config);
+  } else {
+    config = loadConfig();
   }
 
-  console.log(chalk.bold.cyan("\n🚀FSD cтруктура готова!🚀"));
-}
+  if (targetDir) {
+    config.root = targetDir;
+  }
+
+  createFolders(config);
+};

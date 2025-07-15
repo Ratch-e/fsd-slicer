@@ -21,12 +21,14 @@
     "chalk": "^5.4.1",
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",
-    "fs-extra": "^11.3.0"
+    "fs-extra": "^11.3.0",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.13",
+    "@types/prompts": "^2.4.9",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
     "eslint": "^9.31.0",

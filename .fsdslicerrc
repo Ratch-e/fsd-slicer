@@ -1,3 +1,11 @@
 {
-  "root": "dist"
+  "root": "test",
+  "layers": {
+    "app": "app",
+    "pages": "pages",
+    "widgets": "huidgets",
+    "features": "features",
+    "entities": "entities",
+    "shared": "shared"
+  }
 }

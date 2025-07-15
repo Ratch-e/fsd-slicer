@@ -1,21 +1,6 @@
 import { cosmiconfigSync } from "cosmiconfig";
-
-export interface FSDConfig {
-  root: string;
-  layers: Record<string, string>;
-}
-
-const defaultConfig: FSDConfig = {
-  root: "src",
-  layers: {
-    app: "app",
-    pages: "pages",
-    widgets: "widgets",
-    features: "features",
-    entities: "entities",
-    shared: "shared",
-  },
-};
+import { FSDConfig } from "../types/common";
+import { DEFAULT_CONFIG } from "../constants/common";
 
 export function loadConfig(): FSDConfig {
   const explorer = cosmiconfigSync("fsdslicer");
@@ -23,14 +8,14 @@ export function loadConfig(): FSDConfig {
 
   if (result?.config) {
     return {
-      ...defaultConfig,
+      ...DEFAULT_CONFIG,
       ...result.config,
       layers: {
-        ...defaultConfig.layers,
+        ...DEFAULT_CONFIG.layers,
         ...(result.config.layers || {}),
       },
     };
   }
 
-  return defaultConfig;
+  return DEFAULT_CONFIG;
 }
