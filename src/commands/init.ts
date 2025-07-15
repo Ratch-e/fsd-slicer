@@ -1,5 +1,5 @@
 import { loadConfig } from "../lib/loadConfig";
-import { runCustomConfigPrompt, runInitPrompt } from "../core/promps/init";
+import { runCustomConfigPrompt, runInitPrompt } from "../core/prompts/init";
 import { createConfigFile } from "../core/generators/createConfigFile";
 import { createFolders } from "../core/generators/createFolders";
 import { FSDConfig } from "../types/common";

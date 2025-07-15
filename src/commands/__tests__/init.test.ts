@@ -1,6 +1,6 @@
 import { createConfigFile } from "../../core/generators/createConfigFile";
 import { createFolders } from "../../core/generators/createFolders";
-import { runInitPrompt, runCustomConfigPrompt } from "../../core/promps/init";
+import { runInitPrompt, runCustomConfigPrompt } from "../../core/prompts/init";
 import { checkProjectRoot } from "../../lib/checkProjectRoot";
 import { loadConfig } from "../../lib/loadConfig";
 import { runInit } from "../init";
