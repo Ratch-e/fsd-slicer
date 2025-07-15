@@ -1,15 +1,15 @@
-import { createConfigFile } from "../../core/generators/createConfigFile";
-import { createFolders } from "../../core/generators/createFolders";
-import { runInitPrompt, runCustomConfigPrompt } from "../../core/prompts/init";
-import { checkProjectRoot } from "../../lib/checkProjectRoot";
-import { loadConfig } from "../../lib/loadConfig";
+import { createConfigFile } from "../../generators/createConfigFile";
+import { createFolders } from "../../generators/createFolders";
+import { runInitPrompt, runCustomConfigPrompt } from "../../prompts/init";
+import { checkProjectRoot } from "../../../lib/checkProjectRoot";
+import { loadConfig } from "../../../lib/loadConfig";
 import { runInit } from "../init";
 
-jest.mock("../../lib/loadConfig");
-jest.mock("../../core/promps/init");
-jest.mock("../../core/generators/createConfigFile");
-jest.mock("../../core/generators/createFolders");
-jest.mock("../../lib/checkProjectRoot");
+jest.mock("../../../lib/loadConfig");
+jest.mock("../../prompts/init");
+jest.mock("../../generators/createConfigFile");
+jest.mock("../../generators/createFolders");
+jest.mock("../../../lib/checkProjectRoot");
 
 const mockLoadConfig = loadConfig as jest.MockedFunction<typeof loadConfig>;
 const mockRunInitPrompt = runInitPrompt as jest.MockedFunction<typeof runInitPrompt>;

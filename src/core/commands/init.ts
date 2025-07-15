@@ -1,9 +1,9 @@
-import { loadConfig } from "../lib/loadConfig";
-import { runCustomConfigPrompt, runInitPrompt } from "../core/prompts/init";
-import { createConfigFile } from "../core/generators/createConfigFile";
-import { createFolders } from "../core/generators/createFolders";
-import { FSDConfig } from "../types/common";
-import { checkProjectRoot } from "../lib/checkProjectRoot";
+import { loadConfig } from "../../lib/loadConfig";
+import { runCustomConfigPrompt, runInitPrompt } from "../prompts/init";
+import { createConfigFile } from "../generators/createConfigFile";
+import { createFolders } from "../generators/createFolders";
+import { FSDConfig } from "../../types/common";
+import { checkProjectRoot } from "../../lib/checkProjectRoot";
 
 export const runInit = async (targetDir?: string) => {
   checkProjectRoot();
