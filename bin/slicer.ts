@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import chalk from "chalk";
-import { runInit } from "../src/commands/init.js"; // будет позже
+import { runInit } from "../src/commands/init.js";
 
 const program = new Command();
-
 program
   .name("fsd-slicer")
   .description("CLI for generating Feature-Sliced Design structure")
