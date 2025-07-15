@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 import { DEFAULT_CONFIG } from "../../constants/common";
-import { runInTempDir } from "../../helpers/tests";
+import { runInTempDir } from "../tests";
 import { loadConfig } from "../loadConfig";
 
 describe("WHEN loadConfig is called", () => {

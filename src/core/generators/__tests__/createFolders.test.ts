@@ -2,7 +2,7 @@ import fs from "fs-extra";
 import path from "path";
 import { DEFAULT_CONFIG } from "../../../constants/common";
 import { createFolders } from "../createFolders";
-import { runInTempDir } from "../../../helpers/tests";
+import { runInTempDir } from "../../../lib/tests";
 
 describe("createFolders", () => {
   it("WHEN called AND given config MUST create directories", async () => {

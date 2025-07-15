@@ -9,6 +9,8 @@ export const DEFAULT_SLICES = {
   shared: "shared",
 } as const;
 
+export const DEFAULT_SUBFOLDERS = ["ui", "lib", "model", "config", "api"];
+
 export const DEFAULT_ROOT = "src";
 
 export const DEFAULT_CONFIG: FSDConfig = {

@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs-extra";
-import { runInTempDir } from "../../helpers/tests";
+import { runInTempDir } from "../tests";
 import { checkProjectRoot } from "../checkProjectRoot";
 
 describe("checkProjectRoot", () => {

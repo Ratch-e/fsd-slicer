@@ -3,7 +3,7 @@ import path from "path";
 
 import { createConfigFile } from "../createConfigFile";
 import { DEFAULT_CONFIG, DEFAULT_ROOT } from "../../../constants/common";
-import { runInTempDir } from "../../../helpers/tests";
+import { runInTempDir } from "../../../lib/tests";
 
 describe("WHEN createConfigFile is called", () => {
   it("AND provided config MUST create a config file", async () => {
