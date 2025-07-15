@@ -8,7 +8,10 @@ export const runInitPrompt = async (): Promise<"default" | "custom"> => {
     name: "mode",
     message: `⚙️ Тип конфигурации:`,
     choices: [
-      { title: "Стандартная", value: "default" },
+      {
+        title: "Стандартная (из файла конфигурации при наличии)",
+        value: "default",
+      },
       { title: "Свои настройки", value: "custom" },
     ],
     initial: 0,
