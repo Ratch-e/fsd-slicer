@@ -6,7 +6,7 @@ export const runInitPrompt = async (): Promise<"default" | "custom"> => {
   const { mode } = await prompts({
     type: "select",
     name: "mode",
-    message: `⚙️ Тип конфигурации:`,
+    message: `⚙️ Initialization type:`,
     choices: [
       {
         title: "Default (or from config file if exists)",
