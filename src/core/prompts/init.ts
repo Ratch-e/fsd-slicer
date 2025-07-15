@@ -9,10 +9,10 @@ export const runInitPrompt = async (): Promise<"default" | "custom"> => {
     message: `⚙️ Тип конфигурации:`,
     choices: [
       {
-        title: "Стандартная (из файла конфигурации при наличии)",
+        title: "Default (or from config file if exists)",
         value: "default",
       },
-      { title: "Свои настройки", value: "custom" },
+      { title: "Custom", value: "custom" },
     ],
     initial: 0,
   });
@@ -24,7 +24,7 @@ export const runCustomConfigPrompt = async (): Promise<FSDConfig> => {
   const { root } = await prompts({
     type: "text",
     name: "root",
-    message: "🗂️  Root-папка:",
+    message: "🗂️  Root folder:",
     initial: DEFAULT_ROOT,
   });
 
@@ -34,7 +34,7 @@ export const runCustomConfigPrompt = async (): Promise<FSDConfig> => {
     const { value } = await prompts({
       type: "text",
       name: "value",
-      message: `📦 Название слоя '${key}':`,
+      message: `📦 Name of '${key}' slice:`,
       initial: DEFAULT_SLICES[key as keyof typeof DEFAULT_SLICES],
     });
 
