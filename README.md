@@ -1,23 +1,79 @@
 # 🛠️ fsd-slicer
 
-**CLI-инструмент для генерации архитектуры [Feature-Sliced Design](https://feature-sliced.design/)**
+**A CLI tool for generating [Feature-Sliced Design](https://feature-sliced.design/) project structure.**
 
 ---
 
-## 🚀 Возможности
+## 🚀 Features
 
-- Инициализация структуры FSD-проектов
-- Кастомизация структуры через конфиг `.fsdslicerrc`
-- Поддержка пользовательских названий слоёв (например, `pagesSlice`)
-- Работа с любыми путями, а не только `src/`
+- Initialize a full FSD folder structure
+- Custom config support via `.fsdslicerrc`
+- Layer aliasing (e.g. `pagesSlice` instead of `pages`)
+- Set any custom root (not just `src/`)
+- Generate entities, features, widgets, pages, and app slices with inner structure
+- Generate shared components with grouped structure (`shared/ui/Button`, etc.)
+- Auto-create `index.ts` files in generated folders
 
 ---
 
-## 📦 Установка
+## 📦 Installation
 
-## ...будет добавлено
+_Coming soon after publish to npm..._
 
-## 📁 Структура по умолчанию
+```bash
+npm install -g fsd-slicer
+```
+
+---
+
+## 🧪 Usage
+
+### Initialize FSD structure
+
+```bash
+fsd-slicer init
+```
+
+Will prompt whether to use **default** or **custom** config.
+
+### Generate slice entity (e.g. `user`)
+
+```bash
+fsd-slicer generate entity user
+```
+
+Creates:
+
+```
+entities/
+└── user/
+    ├── api/
+    ├── config/
+    ├── lib/
+    ├── model/
+    ├── ui/
+    └── index.ts
+```
+
+### Generate shared component (e.g. `Button` in `ui`)
+
+```bash
+fsd-slicer generate shared Button ui
+```
+
+Creates:
+
+```
+shared/
+└── ui/
+    ├── Button/
+    │   └── Button.tsx
+    └── index.ts  (auto-appended)
+```
+
+---
+
+## 📁 Default structure
 
 ```bash
 src/
@@ -31,9 +87,11 @@ src/
 
 ---
 
-## ⚙️ Кастомизация через `.fsdslicerrc.json`
+## ⚙️ Customization via `.fsdslicerrc`
 
-Пример конфига:
+You can fully customize root path and layer aliases.
+
+### Example config:
 
 ```json
 {
@@ -51,11 +109,21 @@ src/
 
 ---
 
-## 🧩 Конфиг ищется в:
+## 🔍 Config file lookup order:
 
-- `.fsdslicerrc`
-- `.fsdslicerrc.json`
-- `fsdslicer.config.js`
-- `package.json > fsdslicer`
+1. `.fsdslicerrc`
+2. `.fsdslicerrc.json`
+3. `fsdslicer.config.js`
+4. `package.json > fsdslicer`
 
 ---
+
+## ❤️ Contributing
+
+Feel free to open issues or pull requests!
+
+---
+
+## 🧠 License
+
+MIT
