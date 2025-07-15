@@ -27,12 +27,12 @@ describe("WHEN runCustomConfigPrompt is called", () => {
   it("AND user provides values MUST return composed config", async () => {
     mockedPrompts
       .mockResolvedValueOnce({ root: DEFAULT_ROOT })
-      .mockResolvedValueOnce({ value: "app" })
-      .mockResolvedValueOnce({ value: "pages" })
-      .mockResolvedValueOnce({ value: "widgets" })
-      .mockResolvedValueOnce({ value: "features" })
-      .mockResolvedValueOnce({ value: "entities" })
-      .mockResolvedValueOnce({ value: "shared" });
+      .mockResolvedValueOnce({ value: DEFAULT_SLICES.app })
+      .mockResolvedValueOnce({ value: DEFAULT_SLICES.pages })
+      .mockResolvedValueOnce({ value: DEFAULT_SLICES.widgets })
+      .mockResolvedValueOnce({ value: DEFAULT_SLICES.features })
+      .mockResolvedValueOnce({ value: DEFAULT_SLICES.entities })
+      .mockResolvedValueOnce({ value: DEFAULT_SLICES.shared });
 
     await expect(runCustomConfigPrompt()).resolves.toEqual({
       root: DEFAULT_ROOT,
