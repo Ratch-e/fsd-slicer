@@ -18,8 +18,8 @@ export const createCLI = () => {
 
   program
     .command("generate")
-    .argument("<type>", "Slice type")
-    .argument("<name>", "Name")
+    .argument("[type]", "Slice type")
+    .argument("[name]", "Name")
     .argument("[subtype]", "For shared: ui, lib...")
     .action((type, name, subtype) => {
       runGenerate(type, name, subtype);

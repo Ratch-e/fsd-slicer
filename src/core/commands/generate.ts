@@ -3,10 +3,18 @@ import chalk from "chalk";
 import { createSharedStructure } from "../generators/slices/createSharedStructure";
 import { loadConfig } from "../../lib/loadConfig";
 import { DEFAULT_SUBFOLDERS } from "../../constants/common";
+import { runGeneratePrompt } from "../prompts/generate";
 
-export const runGenerate = (type: string, name: string, subtype?: string) => {
+export const runGenerate = async (type: string, name: string, subtype?: string) => {
   const config = loadConfig();
   const availableLayers = Object.keys(config.layers);
+
+  if (!type || !name) {
+    const responses = await runGeneratePrompt();
+    type = responses.type;
+    name = responses.name;
+    subtype = responses.subtype;
+  }
 
   if (!availableLayers.includes(type)) {
     console.log(
