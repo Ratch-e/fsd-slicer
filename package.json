@@ -1,6 +1,6 @@
 {
   "name": "fsd-slicer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI Feature-Sliced Design structure generator",
   "bin": {
     "fsd-slicer": "dist/slicer.js"

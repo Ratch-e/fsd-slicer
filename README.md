@@ -18,11 +18,20 @@
 
 ## 📦 Installation
 
-_Coming soon after publish to npm..._
+You can run it without installing:
 
 ```bash
-npm install -g fsd-slicer
+npx fsd-slicer init
+npx fsd-slicer generate
 ```
+
+Or install locally to use in scripts:
+
+pnpm add -D fsd-slicer
+
+# or
+
+npm install --save-dev fsd-slicer
 
 ---
 
