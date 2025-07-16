@@ -4,19 +4,22 @@
   "description": "CLI Feature-Sliced Design structure generator",
   "main": "index.js",
   "bin": {
-    "fsd-slicer": "./bin/slicer.js"
+    "fsd-slicer": "dist/slicer.js"
   },
   "type": "module",
   "scripts": {
-    "dev": "tsx bin/slicer.ts",
+    "build": "rollup -c",
+    "dev": "tsx src/slicer.ts",
+    "prepare": "pnpm run build",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
   "files": [
-    "bin",
-    "src"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "cli",
@@ -39,6 +42,10 @@
     "prompts": "^2.4.2"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.13",
@@ -52,8 +59,13 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "jest": "^30.0.4",
     "prettier": "^3.6.2",
+    "rollup": "^4.45.1",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
