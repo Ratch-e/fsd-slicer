@@ -36,7 +36,15 @@ fsd-slicer init
 
 Will prompt whether to use **default** or **custom** config.
 
-### Generate slice entity (e.g. `user`)
+### Generate slice
+
+```bash
+fsd-slicer generate
+```
+
+Will prompt to choose slice, name and subfolder if required.
+
+But if you for some reason hate prompts...
 
 ```bash
 fsd-slicer generate entity user
@@ -106,6 +114,8 @@ You can fully customize root path and layer aliases.
   }
 }
 ```
+
+here we create an alias for "pages" slice called "pagesSlice". Useful for Next.js
 
 ---
 
